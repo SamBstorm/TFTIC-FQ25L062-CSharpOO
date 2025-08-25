@@ -4,12 +4,17 @@
     {
         static void Main(string[] args)
         {
-            Voiture laFerrari = new Voiture()
+            Voiture laFerrari = new ()
             {
                 couleur = "Rouge",
                 immatriculation = "1-ABC-123",
                 nbRoues = 4
             };
+
+            Voiture laFerrari2 = new Voiture();
+            laFerrari2.couleur = "Rouge";
+            laFerrari2.immatriculation = "1-ABC-123";
+            laFerrari2.nbRoues = 4;
 
             Console.WriteLine($"Voici ma petite twingo, elle est {laFerrari.couleur}, immatriculée {laFerrari.immatriculation}, avec ses {laFerrari.nbRoues} roues.");
 
