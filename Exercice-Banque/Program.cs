@@ -17,7 +17,7 @@ namespace Exercice_Banque
                 DateNaiss = new(1987, 9, 27)
             };
 
-            Courrant c1 = new()
+            Courant c1 = new()
             {
                 Numero = "BE01",
                 Titulaire = p,
@@ -61,7 +61,7 @@ namespace Exercice_Banque
 
             Console.WriteLine("Utilisateur, veuillez choisir un compte");
             string numeroChoisi = Console.ReadLine() ?? "";
-            Courrant? compteChoisi = b[numeroChoisi];
+            Courant? compteChoisi = b[numeroChoisi];
             if (compteChoisi is null)
             {
                 Console.WriteLine($"Aucun compte ne correspond au numéro \"{numeroChoisi}\"...");
@@ -69,6 +69,31 @@ namespace Exercice_Banque
             else {
                 Console.WriteLine($"Infos compte \"{compteChoisi.Numero}\":\nTitulaire : {compteChoisi.Titulaire.Nom} {compteChoisi.Titulaire.Prenom}\nSolde : {compteChoisi.Solde} €\nLigne de crédit : {compteChoisi.LigneDeCredit} €");
             }
+
+            #endregion
+
+            #region Exercice 03
+
+            b["BE02"]?.Depot(100);
+            b["BE03"]?.Depot(100);
+            Console.Clear();
+            Console.WriteLine("Veuillez vous identifier :");
+            Console.WriteLine("Nom :");
+            string userName = Console.ReadLine();
+            Console.WriteLine("Prénom :");
+            string userFirstname = Console.ReadLine();
+            Console.WriteLine("Date de naissance :");
+            DateOnly userBirthdate = DateOnly.Parse(Console.ReadLine());
+
+            Personne currentUser = new()
+            {
+                Nom = userName,
+                Prenom = userFirstname,
+                DateNaiss = new DateTime(userBirthdate, new TimeOnly())
+            };
+
+            Console.WriteLine("Voici vos avoirs :");
+            Console.WriteLine($"{b.AvoirsDesComptes(currentUser)} €");
 
             #endregion
         }

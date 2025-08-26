@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercice_Banque.Models
 {
-    internal class Courrant
+    internal class Courant
     {
         private double _ligneDeCredit;
         public double LigneDeCredit
@@ -34,5 +34,21 @@ namespace Exercice_Banque.Models
             Solde -= montant;
         }
 
+        public static double operator +(Courant left, Courant right) {
+            /*double soldeLeft = 0;
+            double soldeRight = 0;
+            if (left.Solde > 0) soldeLeft = left.Solde;
+            if (right.Solde > 0) soldeRight = right.Solde;
+            return soldeLeft + soldeRight;*/
+            return ((left.Solde > 0) ? left.Solde : 0) + ((right.Solde > 0) ? right.Solde : 0);
+        }
+
+        public static double operator +(double left, Courant right)
+        {
+            /*double soldeRight = 0;
+            if (right.Solde > 0) soldeRight = right.Solde;
+            return left + soldeRight;*/
+            return left + ((right.Solde > 0) ? right.Solde : 0);
+        }
     }
 }
