@@ -113,7 +113,23 @@ namespace Exercice_Banque
                 Console.WriteLine("Voici vos avoirs :");
                 Console.WriteLine($"{b.AvoirsDesComptes(currentUser)} €");
 
-                #endregion
+            #endregion
+            #region Exercice 6
+            Compte compteAvecInteret = b["BE01"];
+            Console.WriteLine($"Le solde actuel de {compteAvecInteret.Numero} est de {compteAvecInteret.Solde} €");
+            compteAvecInteret.AppliquerInteret();
+            Console.WriteLine($"Le solde de {compteAvecInteret.Numero} après application des intérêts est de {compteAvecInteret.Solde} €");
+            compteAvecInteret = b["BE04"];
+            Console.WriteLine($"Le solde actuel de {compteAvecInteret.Numero} est de {compteAvecInteret.Solde} €");
+            compteAvecInteret.AppliquerInteret();
+            Console.WriteLine($"Le solde de {compteAvecInteret.Numero} après application des intérêts est de {compteAvecInteret.Solde} €");
+            compteAvecInteret = b["BE03"];
+            Console.WriteLine($"Le solde actuel de {compteAvecInteret.Numero} est de {compteAvecInteret.Solde} €");
+            compteAvecInteret.AppliquerInteret();
+            Console.WriteLine($"Le solde de {compteAvecInteret.Numero} après application des intérêts est de {compteAvecInteret.Solde} €");
+
+            #endregion
+
             #endregion
 
             #region Exercice 04

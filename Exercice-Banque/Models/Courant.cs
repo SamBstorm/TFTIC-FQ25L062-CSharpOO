@@ -22,6 +22,11 @@ namespace Exercice_Banque.Models
         {
             base.Retrait(montant, LigneDeCredit);
         }
-        
+
+        protected override double CalculerInteret()
+        {
+            return (Solde >= 0) ? (Solde * 0.03) : (Solde * 0.0975);
+            //return Solde * ((Solde >= 0) ? 0.03 : 0.0975);
+        }
     }
 }

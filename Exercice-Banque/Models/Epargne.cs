@@ -16,5 +16,10 @@ namespace Exercice_Banque.Models
             base.Retrait(montant);
             if(Solde != oldSolde) DateDernierRetrait = DateTime.Now;
         }
+
+        protected override double CalculerInteret()
+        {
+            return Solde * 0.045;
+        }
     }
 }

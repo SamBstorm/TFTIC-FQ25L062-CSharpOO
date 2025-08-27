@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercice_Banque.Models
 {
-    internal class Compte
+    internal abstract class Compte
     {
         public string Numero { get; set; }
         public Personne Titulaire { get; set; }
@@ -29,6 +29,13 @@ namespace Exercice_Banque.Models
         {
             Retrait(montant, 0);
         }
+
+        public void AppliquerInteret()
+        {
+            Solde += CalculerInteret();
+        }
+
+        protected abstract double CalculerInteret();
 
         public static double operator +(Compte left, Compte right)
         {
