@@ -8,7 +8,6 @@ namespace Exercice_Banque
         static void Main(string[] args)
         {
             #region Exercice 01 + 02 + 03
-            /*
                 #region Exercice 01
                 Console.OutputEncoding = Encoding.Unicode;
 
@@ -42,14 +41,15 @@ namespace Exercice_Banque
                 };
 
                 b.Ajouter(c1);
-                b.Ajouter(new()
+                Courant c2 = new()
                 {
                     Numero = "BE02",
                     Titulaire = p,
                     LigneDeCredit = 100
-                });
+                };
+                b.Ajouter(c2);
 
-                b.Ajouter(new()
+                b.Ajouter(new Courant()
                 {
                     Numero = "BE03",
                     Titulaire = new()
@@ -61,15 +61,30 @@ namespace Exercice_Banque
                     LigneDeCredit = 50
                 });
 
+                b.Ajouter(new Epargne()
+                {
+                    Numero = "BE04",
+                    Titulaire = new()
+                    {
+                        Nom = "Claes",
+                        Prenom = "Alexandre",
+                        DateNaiss = new(1991, 1, 1)
+                    }
+                });
+
                 Console.WriteLine("Utilisateur, veuillez choisir un compte");
                 string numeroChoisi = Console.ReadLine() ?? "";
-                Courant? compteChoisi = b[numeroChoisi];
+                Compte? compteChoisi = b[numeroChoisi];
                 if (compteChoisi is null)
                 {
                     Console.WriteLine($"Aucun compte ne correspond au numéro \"{numeroChoisi}\"...");
                 }
-                else {
-                    Console.WriteLine($"Infos compte \"{compteChoisi.Numero}\":\nTitulaire : {compteChoisi.Titulaire.Nom} {compteChoisi.Titulaire.Prenom}\nSolde : {compteChoisi.Solde} €\nLigne de crédit : {compteChoisi.LigneDeCredit} €");
+                else if(compteChoisi is Courant courant){
+                    Console.WriteLine($"Infos compte \"{courant.Numero}\":\nTitulaire : {courant.Titulaire.Nom} {courant.Titulaire.Prenom}\nSolde : {courant.Solde} €\nLigne de crédit : {courant.LigneDeCredit} €");
+                }
+                else if(compteChoisi is Epargne epargne)
+                {
+                    Console.WriteLine($"Infos compte \"{epargne.Numero}\":\nTitulaire : {epargne.Titulaire.Nom} {epargne.Titulaire.Prenom}\nSolde : {epargne.Solde} €\nDate dernier retrait : {epargne.DateDernierRetrait}");
                 }
 
                 #endregion
@@ -78,6 +93,7 @@ namespace Exercice_Banque
 
                 b["BE02"]?.Depot(100);
                 b["BE03"]?.Depot(100);
+                b["BE04"]?.Depot(500);
                 Console.Clear();
                 Console.WriteLine("Veuillez vous identifier :");
                 Console.WriteLine("Nom :");
@@ -97,11 +113,11 @@ namespace Exercice_Banque
                 Console.WriteLine("Voici vos avoirs :");
                 Console.WriteLine($"{b.AvoirsDesComptes(currentUser)} €");
 
-                #endregion*/
+                #endregion
             #endregion
 
             #region Exercice 04
-
+            /*
             Courant c1 = new()
             {
                 Numero = "BE01",
@@ -149,7 +165,7 @@ namespace Exercice_Banque
 
             c0.Depot(10_000);
             c0.Retrait(5_000);
-
+            */
             #endregion
 
         }

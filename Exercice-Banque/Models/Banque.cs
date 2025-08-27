@@ -39,10 +39,10 @@ namespace Exercice_Banque.Models
         #endregion
 
         #region Version List
-        private List<Courant> _comptes = new();
+        private List<Compte> _comptes = new();
         public string Nom { get; set; }
 
-        public Courant? this[string numeroCompte]
+        public Compte? this[string numeroCompte]
         {
             get
             {
@@ -54,7 +54,7 @@ namespace Exercice_Banque.Models
                 return _comptes.FirstOrDefault(c => c.Numero == numeroCompte);
             }
         }
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             if (_comptes.Contains(compte)) return; //Gérer avec une exception au lieu du return
             _comptes.Add(compte);
@@ -62,7 +62,7 @@ namespace Exercice_Banque.Models
 
         public void Supprimer(string numero)
         {
-            Courant? compteASupprimer = this[numero];
+            Compte? compteASupprimer = this[numero];
             if (compteASupprimer is null) return; //Gérer avec une exception au lieu du return
             if (!_comptes.Remove(compteASupprimer)) return; //Gérer avec une exception au lieu du return
         }
@@ -70,7 +70,7 @@ namespace Exercice_Banque.Models
         public double AvoirsDesComptes(Personne titulaire)
         {
             double avoirs = 0;
-            foreach (Courant c in _comptes)
+            foreach (Compte c in _comptes)
             {
                 if (c.Titulaire == titulaire) {
                     avoirs += c;
