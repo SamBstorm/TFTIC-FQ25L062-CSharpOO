@@ -115,7 +115,7 @@ namespace Exercice_Banque
 
             #endregion
             #region Exercice 6
-            Compte compteAvecInteret = b["BE01"];
+            IBanker compteAvecInteret = b["BE01"];
             Console.WriteLine($"Le solde actuel de {compteAvecInteret.Numero} est de {compteAvecInteret.Solde} €");
             compteAvecInteret.AppliquerInteret();
             Console.WriteLine($"Le solde de {compteAvecInteret.Numero} après application des intérêts est de {compteAvecInteret.Solde} €");
@@ -127,6 +127,19 @@ namespace Exercice_Banque
             Console.WriteLine($"Le solde actuel de {compteAvecInteret.Numero} est de {compteAvecInteret.Solde} €");
             compteAvecInteret.AppliquerInteret();
             Console.WriteLine($"Le solde de {compteAvecInteret.Numero} après application des intérêts est de {compteAvecInteret.Solde} €");
+
+            #endregion
+
+            #region Exercice 07
+
+            ICustomer compteClient = b["BE01"];
+
+            Console.WriteLine($"Le solde du compte BE01 est de {compteClient.Solde} €");
+            Console.WriteLine("Combien pour votre dépôt ?");
+            double montant = double.Parse(Console.ReadLine());
+            compteClient.Depot(montant);
+            Console.WriteLine($"Le solde du compte BE01 est de {compteClient.Solde} €");
+
 
             #endregion
 
