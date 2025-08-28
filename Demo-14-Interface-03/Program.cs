@@ -19,16 +19,19 @@
                     IElfe e = h;
                     e.TirerArc();
                     e.FairePotion();
+                    e.SeSoigner();
                     break;
                 case "2":
                     INain n = h;
                     n.FrapperHache();
                     n.RecolterMinerais();
+                    //n.SeSoigner();    //N'a pas accès à la méthode car non-implémenté dans INain
                     break;
                 case "3":
                     IVoleur v = h;
                     v.UtiliserDague();
                     v.Voler();
+                    v.SeSoigner();
                     break;
             }
         }

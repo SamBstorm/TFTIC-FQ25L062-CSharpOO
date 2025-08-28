@@ -40,5 +40,19 @@ namespace Demo_14_Interface_03
         {
             Console.WriteLine("Je vole!");
         }
+
+        public void SeSoigner()
+        {
+            /* Non fonctionnel car notre instance Hero est aussi bien de type IElfe et IVoleur
+            if(this is IElfe)
+            {
+                Console.WriteLine("Je me soigne grâce à la nature!");
+            }
+            else if(this is IVoleur)
+            {
+                Console.WriteLine("J'utilise les bandages que j'ai volé!");
+            }*/
+            Console.WriteLine("Je me soigne!");
+        }
     }
 }
