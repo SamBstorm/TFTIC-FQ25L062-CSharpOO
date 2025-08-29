@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exercice_Banque.Models.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,14 +26,14 @@ namespace Exercice_Banque.Models
 
         public void Depot(double montant)
         {
-            if (montant <= 0) return; //A remplacer par une exception
+            if (montant <= 0) throw new ArgumentOutOfRangeException(nameof(montant),"Le montant à déposer doit être supérieur à 0.");
             Solde += montant;
         }
 
         protected void Retrait(double montant, double limite)
         {
-            if (montant <= 0) return; //Gestion par exception
-            if (montant > Solde + limite) return; //Gestion par exception
+            if (montant <= 0) throw new ArgumentOutOfRangeException(nameof(montant), "Le montant à retirer doit être supérieur à 0.");
+            if (montant > Solde + limite) throw new SoldeInsuffisantException(this.Numero, this.Solde, montant, limite);
             Solde -= montant;
         }
 

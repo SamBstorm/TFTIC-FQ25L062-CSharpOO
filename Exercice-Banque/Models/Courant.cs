@@ -13,7 +13,7 @@ namespace Exercice_Banque.Models
         {
             get { return _ligneDeCredit; }
             set {
-                if (value < 0) return; //A remplacer par une exception
+                if (value < 0) throw new InvalidOperationException("La ligne de crédit doit être positif.");
                 _ligneDeCredit = value;
             }
         }
