@@ -8,9 +8,20 @@ namespace Exercice_Banque.Models
 {
     internal abstract class Compte : IBanker
     {
-        public string Numero { get; set; }
-        public Personne Titulaire { get; set; }
+        public string Numero { get; private set; }
+        public Personne Titulaire { get; private set; }
         public double Solde { get; private set; }
+
+        protected Compte(string numero, Personne titulaire) : this(numero, titulaire, default)
+        {
+        }
+
+        protected Compte(string numero, Personne titulaire, double solde)
+        {
+            Numero = numero;
+            Titulaire = titulaire;
+            Solde = solde;
+        }
 
         public void Depot(double montant)
         {

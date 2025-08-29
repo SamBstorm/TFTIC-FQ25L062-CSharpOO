@@ -17,6 +17,13 @@ namespace Exercice_Banque.Models
                 _ligneDeCredit = value;
             }
         }
+        public Courant(string numero, Personne titulaire, double ligneDeCredit) : this (numero, titulaire, ligneDeCredit, default)
+        {
+        }
+        public Courant(string numero, Personne titulaire, double ligneDeCredit, double solde) : base(numero, titulaire, solde)
+        {
+            LigneDeCredit = ligneDeCredit;
+        }
 
         public override void Retrait(double montant)
         {

@@ -8,7 +8,16 @@ namespace Exercice_Banque.Models
 {
     internal class Epargne : Compte
     {
+
         public DateTime? DateDernierRetrait { get; private set; }
+        public Epargne(string numero, Personne titulaire) : this(numero, titulaire, default, default)
+        {
+        }
+
+        public Epargne(string numero, Personne titulaire, double solde, DateTime? dateDernierRetrait) : base(numero, titulaire, solde)
+        {
+            DateDernierRetrait = dateDernierRetrait;
+        }
 
         public override void Retrait (double montant)
         {

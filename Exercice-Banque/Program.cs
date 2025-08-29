@@ -11,21 +11,9 @@ namespace Exercice_Banque
                 #region Exercice 01
                 Console.OutputEncoding = Encoding.Unicode;
 
-                Personne p = new()
-                {
-                    Nom = "Legrain",
-                    Prenom = "Samuel",
-                    DateNaiss = new(1987, 9, 27)
-                };
+                Personne p = new("Legrain","Samuel",new(1987, 9, 27));
 
-                Courant c1 = new()
-                {
-                    Numero = "BE01",
-                    Titulaire = p,
-                    LigneDeCredit = 50
-                };
-
-                c1.Depot(10_000);
+                Courant c1 = new("BE01",p,50,10_000);
 
                 Console.WriteLine($"Infos compte \"{c1.Numero}\":\nTitulaire : {c1.Titulaire.Nom} {c1.Titulaire.Prenom}\nSolde : {c1.Solde} €\nLigne de crédit : {c1.LigneDeCredit} €");
 
@@ -41,36 +29,23 @@ namespace Exercice_Banque
                 };
 
                 b.Ajouter(c1);
-                Courant c2 = new()
-                {
-                    Numero = "BE02",
-                    Titulaire = p,
-                    LigneDeCredit = 100
-                };
+                Courant c2 = new("BE02",p,100);
                 b.Ajouter(c2);
 
-                b.Ajouter(new Courant()
-                {
-                    Numero = "BE03",
-                    Titulaire = new()
-                    {
-                        Nom = "Claes",
-                        Prenom = "Alexandre",
-                        DateNaiss = new(1991, 1, 1)
-                    },
-                    LigneDeCredit = 50
-                });
+                b.Ajouter(
+                    new Courant(
+                        "BE03",
+                        new("Claes","Alexandre",new(1991, 1, 1)),
+                        50
+                    )
+                );
 
-                b.Ajouter(new Epargne()
-                {
-                    Numero = "BE04",
-                    Titulaire = new()
-                    {
-                        Nom = "Claes",
-                        Prenom = "Alexandre",
-                        DateNaiss = new(1991, 1, 1)
-                    }
-                });
+                b.Ajouter(
+                    new Epargne(
+                        "BE04",
+                        new("Claes","Alexandre",new(1991, 1, 1))
+                    )
+                );
 
                 Console.WriteLine("Utilisateur, veuillez choisir un compte");
                 string numeroChoisi = Console.ReadLine() ?? "";
@@ -103,12 +78,11 @@ namespace Exercice_Banque
                 Console.WriteLine("Date de naissance :");
                 DateOnly userBirthdate = DateOnly.Parse(Console.ReadLine());
 
-                Personne currentUser = new()
-                {
-                    Nom = userName,
-                    Prenom = userFirstname,
-                    DateNaiss = new DateTime(userBirthdate, new TimeOnly())
-                };
+                Personne currentUser = new(
+                    userName,
+                    userFirstname,
+                    new DateTime(userBirthdate, new TimeOnly())
+                );
 
                 Console.WriteLine("Voici vos avoirs :");
                 Console.WriteLine($"{b.AvoirsDesComptes(currentUser)} €");
