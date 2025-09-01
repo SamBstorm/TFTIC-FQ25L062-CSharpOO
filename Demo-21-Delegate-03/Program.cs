@@ -28,6 +28,17 @@ namespace Demo_21_Delegate_03
             cn.AjouterEleve(e3);
 
             cn.AfficherSommes();
+
+            /* Exemple faille de sécurité
+            //Les délégués anonymes peuvent compromettre le comportement initial 
+            e1.DefinirOperation(delegate (double[] notes) {
+                foreach (double note in notes)
+                {
+                    Console.WriteLine(note);
+                }
+                return notes.Max(); 
+            });
+            Console.WriteLine(e1.CalculDesNotes());*/
         }
     }
 }
