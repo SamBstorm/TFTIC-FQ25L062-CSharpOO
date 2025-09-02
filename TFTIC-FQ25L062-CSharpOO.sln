@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36212.18 d17.14
+VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-01-Namespace", "Demo-01-Namespace\Demo-01-Namespace.csproj", "{4BF38CF9-0300-4655-8AF2-A93F2F8CF7D8}"
 EndProject
@@ -62,6 +62,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice-CarWash", "Exercice-CarWash\Exercice-CarWash.csproj", "{C18C1E45-0B62-4361-B835-BF2AFCF60048}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-24-Evenement-01", "Demo-24-Evenement-01\Demo-24-Evenement-01.csproj", "{08B99C8D-AA20-451B-BA2E-48D9E852DFD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-25-Evenement-02", "Demo-25-Evenement-02\Demo-25-Evenement-02.csproj", "{EFCAF747-615F-4A4B-B0EE-150D55133FA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +183,10 @@ Global
 		{08B99C8D-AA20-451B-BA2E-48D9E852DFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08B99C8D-AA20-451B-BA2E-48D9E852DFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08B99C8D-AA20-451B-BA2E-48D9E852DFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCAF747-615F-4A4B-B0EE-150D55133FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCAF747-615F-4A4B-B0EE-150D55133FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCAF747-615F-4A4B-B0EE-150D55133FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCAF747-615F-4A4B-B0EE-150D55133FA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -214,6 +220,7 @@ Global
 		{AA5690F1-90EA-4A7B-B458-0C8A38A5D20C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C18C1E45-0B62-4361-B835-BF2AFCF60048} = {AC38D9AC-43BB-4C97-AE98-BDEA25CBD2C6}
 		{08B99C8D-AA20-451B-BA2E-48D9E852DFD9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{EFCAF747-615F-4A4B-B0EE-150D55133FA2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5CF39798-6C42-452F-A323-6CD1BAAA26CF}
