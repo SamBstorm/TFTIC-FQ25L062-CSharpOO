@@ -2,16 +2,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Exercice_Banque.Models
 {
+    delegate void PassageEnNegatifEvent(Compte compte);
+
     internal abstract class Compte : IBanker
     {
         public string Numero { get; private set; }
         public Personne Titulaire { get; private set; }
         public double Solde { get; private set; }
+
+        #region Events
+        //public event PassageEnNegatifEvent? PassageEnNegatif = null;
+        public Action<Compte>? PassageEnNegatif = null; // version courte via Action
+
+        protected void TriggerPassageEnNegatif() {
+            PassageEnNegatif?.Invoke(this);
+        }
+        #endregion
 
         protected Compte(string numero, Personne titulaire) : this(numero, titulaire, default)
         {

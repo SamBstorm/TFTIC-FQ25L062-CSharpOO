@@ -28,6 +28,13 @@ namespace Exercice_Banque.Models
         public override void Retrait(double montant)
         {
             base.Retrait(montant, LigneDeCredit);
+
+            if(Solde < 0)
+            {
+                // PassageEnNegatif.Invoke(); Ne fonctionne pas :(
+                // on passe par une méthode du parant pour appeler l'event
+                TriggerPassageEnNegatif();
+            }
         }
 
         protected override double CalculerInteret()

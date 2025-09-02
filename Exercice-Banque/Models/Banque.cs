@@ -58,12 +58,15 @@ namespace Exercice_Banque.Models
         {
             if (_comptes.Contains(compte)) return; //Gérer avec une exception au lieu du return
             _comptes.Add(compte);
+
+            compte.PassageEnNegatif += PassageCompteEnNegatif;
         }
 
         public void Supprimer(string numero)
         {
             Compte? compteASupprimer = this[numero];
             if (compteASupprimer is null) return; //Gérer avec une exception au lieu du return
+            compteASupprimer.PassageEnNegatif -= PassageCompteEnNegatif;
             if (!_comptes.Remove(compteASupprimer)) return; //Gérer avec une exception au lieu du return
         }
 
@@ -77,6 +80,11 @@ namespace Exercice_Banque.Models
                 }
             }
             return avoirs;
+        }
+
+        public void PassageCompteEnNegatif(Compte compte)
+        {
+            Console.WriteLine($"Le compte {compte.Numero} est passé en négatif :(");
         }
         #endregion
     
