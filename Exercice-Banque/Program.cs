@@ -17,7 +17,7 @@ namespace Exercice_Banque
 
                 Console.WriteLine($"Infos compte \"{c1.Numero}\":\nTitulaire : {c1.Titulaire.Nom} {c1.Titulaire.Prenom}\nSolde : {c1.Solde} €\nLigne de crédit : {c1.LigneDeCredit} €");
 
-                c1.Retrait(10_500);
+                //c1.Retrait(10_500);
 
                 Console.WriteLine($"Infos compte \"{c1.Numero}\":\nTitulaire : {c1.Titulaire.Nom} {c1.Titulaire.Prenom}\nSolde : {c1.Solde} €\nLigne de crédit : {c1.LigneDeCredit} €");
                 #endregion
@@ -47,45 +47,46 @@ namespace Exercice_Banque
                     )
                 );
 
-                Console.WriteLine("Utilisateur, veuillez choisir un compte");
-                string numeroChoisi = Console.ReadLine() ?? "";
-                Compte? compteChoisi = b[numeroChoisi];
-                if (compteChoisi is null)
-                {
-                    Console.WriteLine($"Aucun compte ne correspond au numéro \"{numeroChoisi}\"...");
-                }
-                else if(compteChoisi is Courant courant){
-                    Console.WriteLine($"Infos compte \"{courant.Numero}\":\nTitulaire : {courant.Titulaire.Nom} {courant.Titulaire.Prenom}\nSolde : {courant.Solde} €\nLigne de crédit : {courant.LigneDeCredit} €");
-                }
-                else if(compteChoisi is Epargne epargne)
-                {
-                    Console.WriteLine($"Infos compte \"{epargne.Numero}\":\nTitulaire : {epargne.Titulaire.Nom} {epargne.Titulaire.Prenom}\nSolde : {epargne.Solde} €\nDate dernier retrait : {epargne.DateDernierRetrait}");
-                }
+            Console.WriteLine("Utilisateur, veuillez choisir un compte");
+            string numeroChoisi = Console.ReadLine() ?? "";
+            Compte? compteChoisi = b[numeroChoisi];
+            if (compteChoisi is null)
+            {
+                Console.WriteLine($"Aucun compte ne correspond au numéro \"{numeroChoisi}\"...");
+            }
+            else if (compteChoisi is Courant courant)
+            {
+                Console.WriteLine($"Infos compte \"{courant.Numero}\":\nTitulaire : {courant.Titulaire.Nom} {courant.Titulaire.Prenom}\nSolde : {courant.Solde} €\nLigne de crédit : {courant.LigneDeCredit} €");
+            }
+            else if (compteChoisi is Epargne epargne)
+            {
+                Console.WriteLine($"Infos compte \"{epargne.Numero}\":\nTitulaire : {epargne.Titulaire.Nom} {epargne.Titulaire.Prenom}\nSolde : {epargne.Solde} €\nDate dernier retrait : {epargne.DateDernierRetrait}");
+            }
 
-                #endregion
+            #endregion
 
-                #region Exercice 03
+            #region Exercice 03
 
-                b["BE02"]?.Depot(100);
-                b["BE03"]?.Depot(100);
-                b["BE04"]?.Depot(500);
-                Console.Clear();
-                Console.WriteLine("Veuillez vous identifier :");
-                Console.WriteLine("Nom :");
-                string userName = Console.ReadLine();
-                Console.WriteLine("Prénom :");
-                string userFirstname = Console.ReadLine();
-                Console.WriteLine("Date de naissance :");
-                DateOnly userBirthdate = DateOnly.Parse(Console.ReadLine());
+            b["BE02"]?.Depot(100);
+            b["BE03"]?.Depot(100);
+            b["BE04"]?.Depot(500);
+            Console.Clear();
+            Console.WriteLine("Veuillez vous identifier :");
+            Console.WriteLine("Nom :");
+            string userName = Console.ReadLine();
+            Console.WriteLine("Prénom :");
+            string userFirstname = Console.ReadLine();
+            Console.WriteLine("Date de naissance :");
+            DateOnly userBirthdate = DateOnly.Parse(Console.ReadLine());
 
-                Personne currentUser = new(
-                    userName,
-                    userFirstname,
-                    new DateTime(userBirthdate, new TimeOnly())
-                );
+            Personne currentUser = new(
+                userName,
+                userFirstname,
+                new DateTime(userBirthdate, new TimeOnly())
+            );
 
-                Console.WriteLine("Voici vos avoirs :");
-                Console.WriteLine($"{b.AvoirsDesComptes(currentUser)} €");
+            Console.WriteLine("Voici vos avoirs :");
+            Console.WriteLine($"{b.AvoirsDesComptes(currentUser)} €");
 
             #endregion
             #region Exercice 6
@@ -117,6 +118,11 @@ namespace Exercice_Banque
 
             #endregion
 
+            #region Exercice 08
+            Console.WriteLine("Combien voulez-vous retirer?");
+            double montantRetrait = double.Parse(Console.ReadLine());
+            compteClient.Retrait(montantRetrait);
+            #endregion
             #endregion
 
             #region Exercice 04
